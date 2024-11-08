@@ -54,7 +54,7 @@
 
 #searchBar {
   display: none;
-  width: 0; /* Hide initially */
+  width: 70%; /* Hide initially */
 }
 
 /* Media queries for smaller screens (320px to 375px) */
