@@ -2,7 +2,7 @@ const searchBar = document.getElementById("searchBar");
 const closeIcon = document.querySelector(".close-icon");
 const logo = document.getElementById('logo');
 const searchIcon = document.getElementById("search-icon");
-
+const mainWrapper = document.querySelector('.main-wrapper');
 // Function to reset visibility based on screen size
 function handleResize() {
   if (window.innerWidth >= 768) {
@@ -51,3 +51,10 @@ menuToggle.addEventListener('click', function () {
       : 'translateX(0%)';
 });
 
+mainWrapper.addEventListener('click', function () {
+  // Check if the sidebar is visible (in the viewport)
+  if (window.innerWidth < 768 && sidebar.style.transform === 'translateX(0%)') {
+    // Hide the sidebar by moving it out of the viewport
+    sidebar.style.transform = 'translateX(-100%)';
+  }
+});
