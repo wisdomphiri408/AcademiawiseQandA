@@ -156,7 +156,7 @@ header {
   background-color: #f4f4f4;
   position: fixed;
   left: 0;
-  top: 120px;
+  top: 127px;
   transition: transform 0.3s ease;
   transform: translateX(0); /* Visible by default */
   z-index: 1000;
