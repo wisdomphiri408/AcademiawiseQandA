@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="css/general.css">
     <link rel="stylesheet" href="css/header.css">
     <link rel="stylesheet" href="css/sidebar.css">
+    <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
     <header>
@@ -33,22 +34,34 @@
                 <use href="#profileIcon"></use>
             </svg>
         </div>
+        <div class="notifications">
+          <svg class="icons" id="bell-icon">
+            <use href="#bellIcon"></use>
+          </svg>
+        </div>
      </div> <!-- End of the first container in the header -->
 
           <!-- Lower header container -->
   <div class="lower-header">
+    <div>
+      <button id="menu-toggle" class="menu-toggle" >
+        <svg class="icons" aria-label="Menu Icon">
+           <use href="#menuIcon"></use>
+        </svg>
+     </button>
+    </div>
+
+  <div>
+    <button class="feedback-btn">Feedback</button>
+  </div>
+
+
     <div class="add-question">
       <svg class="icons" id="add-question-icon">
         <use href="#addQuestionIcon"></use>
       </svg>
     </div>
-    <div class="notifications">
-      <svg class="icons" id="bell-icon">
-        <use href="#bellIcon"></use>
-      </svg>
-    </div>
   </div>
-</header>
     </header>
 
     <div class="main-wrapper">
@@ -80,19 +93,12 @@
             </div>
             
             <!-- Sidebar Bottom -->
-            <div class="sidebar-bottom">
-              <button class="feedback-btn">Feedback</button>
-            </div>
-          
+            
           </aside>
           
         </aside>
         <div class="main-content"> <!-- Main Content -->
-           <button id="menu-toggle" class="menu-toggle">
-              <svg class="icons" aria-label="Menu Icon">
-                 <use href="#menuIcon"></use>
-              </svg>
-           </button>
+  
 
            <h2>
             The this is the main content
@@ -101,6 +107,28 @@
             What does the main content do, don't ask me, ask the user
            </p>
            <!-- Main page content -->
+           <div class="main-content">
+            <div class="content" id="home">
+              <!-- Home content goes here -->
+              <h1>Welcome to AcademiaWise!</h1>
+            </div>
+          
+            <div class="content" id="files">
+              <!-- Files content goes here -->
+              <h1>Your Files</h1>
+            </div>
+          
+            <div class="content" id="saved-qa">
+              <!-- Saved Q&A content goes here -->
+              <h1>Your Saved Q&A</h1>
+            </div>
+          
+            <div class="content" id="feedback">
+              <!-- Feedback content goes here -->
+              <h1>Feedback</h1>
+            </div>
+          </div>
+          
 
         </div>
      </div>
@@ -169,6 +197,6 @@
     </svg>
 
     <script src="header.js"></script>
- 
+    <script src="main.js"></script>
 </body>
 </html>
