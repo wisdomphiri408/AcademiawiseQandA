@@ -110,3 +110,35 @@ header {
     display: block; /* Show the logo */
   }
 }
+/*the lower header*/
+/* Styling for the lower header */
+.lower-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+}
+
+.add-question,
+.notifications {
+  cursor: pointer;
+}
+
+.add-question svg,
+.notifications svg {
+  width: 28px;
+  height: 28px;
+}
+
+/* Adjustments for smaller screens */
+@media (max-width: 768px) {
+  .lower-header {
+    padding: 8px 15px;
+  }
+
+  .add-question svg,
+  .notifications svg {
+    width: 24px;
+    height: 24px;
+  }
+}
