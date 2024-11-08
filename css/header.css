@@ -142,3 +142,52 @@ header {
     height: 24px;
   }
 }
+
+/* Base Styles */
+.main-wrapper {
+  display: flex;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 250px;
+  height: 100vh;
+  background-color: #f4f4f4;
+  position: fixed;
+  left: 0;
+  top: 130px;
+  transition: transform 0.3s ease;
+  transform: translateX(0); /* Visible by default */
+  z-index: 1000;
+}
+
+/* Main Content */
+.main-content {
+  flex: 1;
+  margin-left: 250px; /* Space for sidebar */
+  padding: 20px;
+}
+
+/* Toggle button */
+.menu-toggle {
+  position: fixed;
+  top: 130px;
+  left: 20px;
+  z-index: 1100;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* Media Query for Small Screens */
+@media (max-width: 768px) {
+  .sidebar {
+     transform: translateX(-100%); /* Hide sidebar */
+  }
+  .main-content {
+     margin-left: 0; /* Full width */
+  }
+  .menu-toggle {
+     display: block; /* Show toggle button */
+  }
+}
