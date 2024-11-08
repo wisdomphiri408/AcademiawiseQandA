@@ -39,3 +39,15 @@ window.addEventListener('resize', handleResize);
 
 // Call the function once to set the correct display state on load
 handleResize();
+
+
+const menuToggle = document.getElementById('menu-toggle');
+const sidebar = document.querySelector('.sidebar');
+
+menuToggle.addEventListener('click', function () {
+   // Toggle sidebar visibility
+   sidebar.style.transform = sidebar.style.transform === 'translateX(0%)'
+      ? 'translateX(-100%)'
+      : 'translateX(0%)';
+});
+
