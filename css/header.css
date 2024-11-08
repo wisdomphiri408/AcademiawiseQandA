@@ -67,3 +67,11 @@
     margin-right: 5%;
   }
 }
+/*making the header stick to the top*/
+header {
+  position: sticky;
+  top: 0;  /* The header will stick to the top of the viewport */
+  z-index: 1000; /* Ensures the header stays above other content */
+  background-color: white; /* You can set the background color to prevent overlap with content */
+}
+
