@@ -36,8 +36,8 @@
   
   .sidebar-bottom {
     position: absolute;
-    bottom: 20px;
-    width: 100%;
+    bottom: 170px;
+    width: 40%;
     padding: 10px;
     text-align: center;
   }
@@ -45,15 +45,13 @@
   .feedback-btn {
     width: 100%;
     padding: 12px;
-    background-color: #007BFF;
-    color: white;
-    border: none;
+    border: thin solid #ddd;
     border-radius: 5px;
     cursor: pointer;
-    font-size: 16px;
   }
   
   .feedback-btn:hover {
-    background-color: #0056b3;
+    background-color: #1A1A1A;
+    color: white;
   }
   
