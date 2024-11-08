@@ -1,0 +1,84 @@
+
+html {
+    font-size: 16px; /* This sets 1rem to equal 16px */
+}
+
+
+        /* Include Google Fonts in your HTML */
+    
+        /* CSS Styles for the font family */
+        body {
+            font-family: 'Open Sans', sans-serif; /* Body text */
+            color: #333; /* Dark gray for text */
+            font-size: 0.875rem; /* Body text */
+            line-height: 1.25rem;
+            font-weight: 400;
+        }
+    
+        h1, h2, h3, h4 {
+            font-family: 'Roboto', sans-serif; /* Header text */
+            font-weight: 700; /* Bold for main headers */
+        }
+    
+        h2 {
+            font-weight: 500; /* Medium for subheaders */
+        }
+    
+        .button {
+            font-family: 'Roboto', sans-serif; /* Buttons for consistency */
+            font-weight: 400;
+            padding: 0.625rem 0.9375rem; /* Add padding for better touch targets */
+            border: none; /* Remove default border */
+            border-radius: 0.3125rem; /* Rounded corners */
+            background-color: #333; /* Dark background */
+            color: #fff; /* White text */
+            cursor: pointer; /* Pointer cursor on hover */
+        }
+    
+        .button:hover {
+            background-color: #555; /* Darker shade on hover */
+        }
+    
+        /* Typography */
+        h1 {
+            font-size: 1.5rem; /* 24px */
+            line-height: 2rem; /* 32px */
+        }
+    
+        h2 {
+            font-size: 1.3125rem; /* 21px */
+            line-height: 1.75rem; /* 28px */
+            font-weight: 600;
+        }
+    
+        h3 {
+            font-size: 1.125rem; /* 18px */
+            line-height: 1.5rem; /* 24px */
+            font-weight: 500;
+        }
+    
+        h4 {
+            font-size: 1rem; /* 16px */
+            line-height: 1.375rem; /* 22px */
+            font-weight: 500;
+        }
+    
+        .small-text {
+            font-size: 0.75rem; /* 12px */
+            line-height: 1.125rem; /* 18px */
+            font-weight: 400;
+        }
+    
+    
+/*css variables for the fonts*/
+:root {
+    --font-size-small: 14px;
+    --font-size-medium: 14px;
+    --font-size-large: 24px;
+}
+
+body {
+    font-size: var(--font-size-medium);
+}
+    
+
