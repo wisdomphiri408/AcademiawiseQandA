@@ -79,3 +79,34 @@ header {
   background-color: white; /* You can set the background color to prevent overlap with content */
 }
 
+/*for atleast 768px screen size*/
+/* Media query for 768px and above */
+@media (min-width: 768px) {
+  #searchBar {
+    display: block; /* Show search bar */
+    width: 50%; /* Adjust the width as needed */
+  }
+
+  #logo {
+    display: block; /* Ensure the logo is visible */
+  }
+
+  .close-icon {
+    display: none; /* Hide the close icon on larger screens */
+  }
+}
+
+/* Smaller screens (below 768px) */
+@media (max-width: 767px) {
+  #searchBar {
+    display: none; /* Hide search bar on smaller screens initially */
+  }
+
+  .close-icon {
+    display: none; /* Hide close icon on smaller screens initially */
+  }
+
+  #logo {
+    display: block; /* Show the logo */
+  }
+}
