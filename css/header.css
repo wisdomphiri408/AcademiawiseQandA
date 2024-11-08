@@ -37,20 +37,22 @@
 }
 
 .profile-icon {
-  flex: 0;
+  flex: 1;
 }
-
+.notifications{
+  flex: 0sss;
+}
 .search-field {
   display: flex;
   align-items: center;
-  flex: 2; /* Take up more space on the right */
+  flex: 3; /* Take up more space on the right */
   position: relative;
 }
 
 .close-icon {
   display: none;
   position: absolute;
-  right: 10px; /* Place it on the right */
+  left: -5px; /* Place it on the right */
 }
 /* Currently using display: none for simplicity. 
  Change it to visibility and opacity for smooth transitions when ready.*/
@@ -59,6 +61,7 @@
   display: none;
   width: 70%; /* Hide initially */
   margin-right: -30PX;
+  margin-left: 10px;
 }
 
 /* Media queries for smaller screens (320px to 375px) */
@@ -75,8 +78,9 @@
 header {
   position: sticky;
   top: 0;  /* The header will stick to the top of the viewport */
-  z-index: 1000; /* Ensures the header stays above other content */
+  z-index: 1001; /* Ensures the header stays above other content */
   background-color: white; /* You can set the background color to prevent overlap with content */
+  left: 0;
   border-bottom: thin solid #ccc;
 }
 
@@ -153,10 +157,10 @@ header {
 .sidebar {
   width: 250px;
   height: 100vh;
-  background-color: #f4f4f4;
   position: fixed;
   left: 0;
   top: 127px;
+  top: 0;
   transition: transform 0.3s ease;
   transform: translateX(0); /* Visible by default */
   z-index: 1000;
@@ -171,10 +175,6 @@ header {
 
 /* Toggle button */
 .menu-toggle {
-  position: fixed;
-  top: 110px;
-  left: 20px;
-  z-index: 1100;
   background: none;
   border: none;
   cursor: pointer;
