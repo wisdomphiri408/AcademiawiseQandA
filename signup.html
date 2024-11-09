@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="css/general.css">
+    <link rel="stylesheet" href="css/signup.css">
+</head>
+<body>
+    <div id="container">
+        <!-- Logo/Header -->
+        <div class="first-row">
+            <h1>AcademiaWise</h1>
+        </div>
+
+        <!-- Icon and Title -->
+        <div class="second-row">
+            <svg class="icons">
+                <use href="#profileIcon"></use>
+            </svg>
+            <h3>Create Your Account</h3>
+        </div>
+
+        <!-- Form Fields -->
+        <form id="signupForm">
+            <div class="input-row">
+                <input type="text" placeholder="First Name (optional)" id="firstName">
+                <input type="text" placeholder="Last Name (optional)" id="lastName">
+            </div>
+            <div class="input-row">
+                <input type="email" placeholder="Email Address" id="emailAdress" required>
+                <input type="password" placeholder="Password" id="password" required>
+            </div>
+            <div class="input-row">
+                <input type="text" placeholder="Username (optional)" id="userName">
+                <input type="text" placeholder="School (optional)" id="school">
+            </div>
+            <div class="input-row">
+                <input type="text" placeholder="Year of Study (optional)" id="yearOfStudy">
+                <div class="checkbox-container">
+                    <input type="checkbox" id="notifications">
+                    <label for="notifications">Allow Notifications</label>
+                </div>
+            </div>
+            
+            <div class="checkbox-container">
+                <input type="checkbox" id="selectCourses">
+                <label for="selectCourses">Select Courses</label>
+            </div>
+            
+            <button type="submit" id="submit">Sign Up</button>
+        </form>
+    </div>
+
+    <!-- SVG Icons -->
+    <svg style="display:none;">
+        <symbol id="profileIcon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+        </symbol>
+    </svg>
+
+    <script src="signup.js"></script>
+</body>
+</html>
