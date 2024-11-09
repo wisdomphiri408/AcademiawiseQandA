@@ -1,0 +1,102 @@
+/* Signup Page Styles */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+#container {
+    width: 100%;
+    max-width: 600px; /*the maximum size the contain can have */
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.second-row {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.icons {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 10px;
+}
+
+h3 {
+    color: #555;
+    font-size: 1.2rem;
+}
+
+form {
+    width: 100%;
+}
+
+/* Input Row Styles */
+.input-row {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 15px;
+}
+
+.input-row input[type="text"],
+.input-row input[type="email"],
+.input-row input[type="password"] {
+    flex: 1;
+    padding: 12px 15px;
+    font-size: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    width: 100%;
+    box-sizing: border-box; /* to ensure padding does not exceed width */
+}
+
+.input-row input::placeholder {
+    color: #888
+}
+.input-row input:focus {
+    outline: none;
+}
+/* Checkbox Styling */
+.checkbox-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+/* Button Styling */
+button#submit {
+    width: 40%;
+    padding: 12px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+}
+
+button#submit:hover {
+    background-color: #555;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .input-row {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    button#submit {
+        font-size: 0.9rem;
+        padding: 10px;
+    }
+}
