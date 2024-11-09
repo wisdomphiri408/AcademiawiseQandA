@@ -2,13 +2,16 @@
 #sidebar {
     position: fixed;
     left: 0;
-    top: 0;
+    top: 10px;
     bottom: 0;
     background-color: white;
     border-right: thin solid #ddd;
     width: 250px; /* Adjust size as needed */
-    padding-top: 170px;
+    padding-top: 150px;
+    z-index: 1000;
   }
+
+
   
   .sidebar-top {
     display: flex;
@@ -42,15 +45,5 @@
     text-align: center;
   }
   
-  .feedback-btn {
-    padding:4px 8px;
-    border: thin solid #ddd;
-    background-color: white;
-    border-radius: 5px;
-    cursor: pointer;
-  }
   
-  .feedback-btn:active {
-    scale: 1.1;
-  }
   
