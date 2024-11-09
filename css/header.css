@@ -2,49 +2,39 @@
 .icons {
   width: 24px;
   height: 24px;
-  fill: currentColor;
   transition: transform 0.3s ease;
   cursor: pointer;
-  background-color: white;
 }
 
 .icons:hover {
   transform: scale(1.1); /* Slightly enlarge the icon on hover */
 }
 
-.search-field input {
-  width: 200px; /* Default width */
-  padding: 8px;
-  border-radius: 4px;
-  border: 1px solid #ccc;
-  transition: width 0.3s ease; /* Smooth transition for resizing */
-}
-
-.search-field input:focus {
-  outline: none;
+/*making the header stick to the top*/
+header {
+  position: sticky;
+  top: 0;  /* The header will stick to the top of the viewport */
+  z-index: 1001; /* Ensures the header stays above other content */
+  background-color: white; /* the background color to prevent overlap with content */
+  left: 0;
+  border-bottom: thin solid #ccc;
 }
 
 .header-container {
   display: flex;
   justify-content: space-between; /* Distribute space between items */
   align-items: center;
-  width: 100%;
+  width: 100%;  /*aimed to take up the whole top space of the header*/
 }
 
 #logo {
-  margin-right: 10%; /* You can adjust this for better spacing */
+  margin-right: 10%;  /*so that the search bar must be placed on the middle*/
   flex: 1;
 }
 
-.profile-icon {
-  flex: 1;
-}
-.notifications{
-  flex: 0sss;
-}
 .search-field {
   display: flex;
-  align-items: center;
+  align-items: center; /*close icon, search bar and search icon will be centered*/
   flex: 3; /* Take up more space on the right */
   position: relative;
 }
@@ -52,44 +42,39 @@
 .close-icon {
   display: none;
   position: absolute;
+  background-color: white; /*prevent the close from being trasnpalent*/
   left: -5px; /* Place it on the right */
 }
-/* Currently using display: none for simplicity. 
+
+.search-field input {
+  padding: 8px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  padding-right: 30px; /*to prevent the word to pass through the search icon*/
+  margin-right: -30PX; /*enabling the search icon to get inside the search bar*/
+}
+
+.search-field input:focus {
+  outline: none;  /*to prevent other colors to be placed around the border when typing*/
+}
+
+
+/* Currently using display: none for simplicity in sidebar visibility. 
  Change it to visibility and opacity for smooth transitions when ready.*/
 
-#searchBar {
-  display: none;
-  width: 70%; /* Hide initially */
-  margin-right: -30PX;
-  margin-left: 10px;
-}
 
 /* Media queries for smaller screens (320px to 375px) */
 @media (max-width: 375px) {
-  .search-field input {
-    width: 150px; /* Smaller input field */
-  }
-
   #logo {
-    margin-right: 5%;
+    margin-right: 5%; /*enables the logo to have enough space, for a clean design*/
   }
 }
-/*making the header stick to the top*/
-header {
-  position: sticky;
-  top: 0;  /* The header will stick to the top of the viewport */
-  z-index: 1001; /* Ensures the header stays above other content */
-  background-color: white; /* You can set the background color to prevent overlap with content */
-  left: 0;
-  border-bottom: thin solid #ccc;
-}
 
-/*for atleast 768px screen size*/
 /* Media query for 768px and above */
 @media (min-width: 768px) {
   #searchBar {
     display: block; /* Show search bar */
-    width: 50%; /* Adjust the width as needed */
+    width: 80%; /* giving the search bar a width when above 768px screen size*/
   }
 
   #logo {
@@ -105,17 +90,24 @@ header {
 @media (max-width: 767px) {
   #searchBar {
     display: none; /* Hide search bar on smaller screens initially */
+    width: 80%;
+    margin-left: 5%;
   }
 
   .close-icon {
     display: none; /* Hide close icon on smaller screens initially */
+    margin-left: 2px;
   }
 
   #logo {
     display: block; /* Show the logo */
   }
 }
-/*the lower header*/
+
+.profile-icon {
+  flex: 1;
+}
+
 /* Styling for the lower header */
 .lower-header {
   display: flex;
@@ -124,28 +116,17 @@ header {
   padding: 10px 20px;
 }
 
-.add-question,
-.notifications {
+.feedback-btn {
+  padding:4px 8px;
+  border: thin solid #ddd;
+  background-color: white;
+  border-radius: 5px;
   cursor: pointer;
+  transition: transform 0.3s ease;
 }
 
-.add-question svg,
-.notifications svg {
-  width: 28px;
-  height: 28px;
-}
-
-/* Adjustments for smaller screens */
-@media (max-width: 768px) {
-  .lower-header {
-    padding: 8px 15px;
-  }
-
-  .add-question svg,
-  .notifications svg {
-    width: 24px;
-    height: 24px;
-  }
+.feedback-btn:hover {
+  transform: scale(1.1); /* Slightly enlarge the icon on hover */
 }
 
 /* Base Styles */
@@ -153,18 +134,11 @@ header {
   display: flex;
 }
 
-/* Sidebar */
-.sidebar {
-  width: 250px;
-  height: 100vh;
-  position: fixed;
-  left: 0;
-  top: 127px;
-  top: 0;
-  transition: transform 0.3s ease;
-  transform: translateX(0); /* Visible by default */
-  z-index: 1000;
-}
+  /* Sidebar */
+  .sidebar {
+    transform: translateX(0); /* Visible by default, used to remove and reinstall the sidebar */
+    transition: transform 0.3s ease;
+  }
 
 /* Main Content */
 .main-content {
@@ -174,10 +148,9 @@ header {
 }
 
 /* Toggle button */
-.menu-toggle {
+.menu-toggle { /*removing the defaults of the toggle button*/
   background: none;
   border: none;
-  cursor: pointer;
 }
 
 /* Media Query for Small Screens */
