@@ -92,7 +92,6 @@ header {
     display: none; /* Hide search bar on smaller screens initially */
     width: 70%;
     margin-left: 5%;
-    margin-right: 5%;
   }
 
   .close-icon {
