@@ -1,0 +1,63 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.signin-container {
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
+    padding-right: 50px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    text-align: center;
+}
+
+h2 {
+    margin-bottom: 20px;
+}
+
+.input-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+
+input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+input:focus{
+    outline: none;
+}
+button {
+    width: 50%;
+    padding: 10px;
+    background-color: #333333; /* Dark gray */
+    color: #ffffff; /* White text */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #444444; /* Slightly lighter gray for hover effect */
+}
+
+a {
+    color: #4A90E2; /* soft blue */
+    text-decoration: none;
+    font-style: italic;
+  }
+  
+  a:hover {
+    color: #357ABD; /* darker blue for hover */
+    text-decoration: underline;
+  }
+  
