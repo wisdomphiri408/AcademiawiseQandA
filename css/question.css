@@ -98,3 +98,8 @@ label {
     padding: 2px;
     width: 20px;
 }
+/*the word/editor styling*/
+/* Adding margin bottom for the Quill toolbar buttons */
+.ql-toolbar .ql-formats {
+    margin-bottom: 10px; 
+}
