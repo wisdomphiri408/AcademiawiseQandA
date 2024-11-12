@@ -1,5 +1,10 @@
+.input-container{
+    width: 100%;
+    margin-bottom: 15px;
+}
 #title{
-    width: 98%;
+    width: 100%;
+    box-sizing: border-box; /* Include padding and border in the element's width */
     padding: 10px;
     border: 1px solid #ccc;
     margin-bottom: 10px;
