@@ -3,12 +3,14 @@ const closeIcon = document.querySelector(".close-icon");
 const logo = document.getElementById('logo');
 const searchIcon = document.getElementById("search-icon");
 const mainWrapper = document.querySelector('.main-wrapper');
+const profile = document.querySelector(".profile-icon");
 // Adding event listener to the search icon
 searchIcon.addEventListener('click', function() {
   if (window.innerWidth < 768) { // Only apply this behavior on small screens
     searchBar.style.display = 'block';
     logo.style.display = 'none';
     closeIcon.style.display = 'block';
+    profile.style.display = 'none';
   }
 });
 
@@ -18,6 +20,7 @@ closeIcon.addEventListener('click', function() {
     searchBar.style.display = 'none';
     logo.style.display = 'block';
     closeIcon.style.display = 'none';
+    profile.style.display = 'block';
   }
 });
 
