@@ -25,29 +25,34 @@
         <!-- Form Fields -->
         <form id="signupForm">
             <div class="input-row">
-                <input type="text" placeholder="First Name (optional)" id="firstName">
-                <input type="text" placeholder="Last Name (optional)" id="lastName">
+                <input type="email" placeholder="Email Address" id="emailAdress" required name="email">
+                <input type="password" placeholder="Password" id="password" required name="pwd">
             </div>
             <div class="input-row">
-                <input type="email" placeholder="Email Address" id="emailAdress" required>
-                <input type="password" placeholder="Password" id="password" required>
+                <input type="password" placeholder="Confirm Password" id="confirmPassword" required>
+                <input type="text" placeholder="Username" id="userName" name="username" required>
             </div>
             <div class="input-row">
-                <input type="text" placeholder="Username (optional)" id="userName">
-                <input type="text" placeholder="School (optional)" id="school">
+                <input type="text" placeholder="Year of Study (Optional)" id="yearOfStudy" name="year_of_study">
             </div>
-            <div class="input-row">
-                <input type="text" placeholder="Year of Study (optional)" id="yearOfStudy">
-                <div class="checkbox-container">
-                    <input type="checkbox" id="notifications">
-                    <label for="notifications">Allow Notifications</label>
-                </div>
-            </div>
-            
             <div class="checkbox-container">
-                <input type="checkbox" id="selectCourses">
+                <input type="checkbox" id="selectCourses" name="courses">
                 <label for="selectCourses">Select Courses</label>
             </div>
+            <div class="checkbox-container">
+                <input type="checkbox" id="terms" required>
+                <label for="terms">I agree to the <a href="terms.html">Terms and Conditions</a></label>
+            </div>
+            
+            <div style="margin-bottom: 10px; margin-top: 10px;">
+                <label for="captcha">What is 2 + 3?</label>
+                <input type="text" id="captcha" required>
+            </div>         
+
+            <div id="error-message">
+                <!--to handle errors-->
+            </div>
+
             
             <button type="submit" id="submit">Sign Up</button>
         </form>
