@@ -6,6 +6,7 @@
     <title>Sign Up</title>
     <link rel="stylesheet" href="css/general.css">
     <link rel="stylesheet" href="css/signup.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
     <div id="container">
@@ -25,7 +26,7 @@
         <!-- Form Fields -->
         <form id="signupForm">
             <div class="input-row">
-                <input type="email" placeholder="Email Address" id="emailAdress" required name="email">
+                <input type="email" placeholder="Email Address" id="email" required name="email">
                 <input type="password" placeholder="Password" id="password" required name="pwd">
             </div>
             <div class="input-row">
@@ -33,14 +34,14 @@
                 <input type="text" placeholder="Username" id="userName" name="username" required>
             </div>
             <div class="input-row">
-                <input type="text" placeholder="Year of Study (Optional)" id="yearOfStudy" name="year_of_study">
+                <input type="number" placeholder="Year of Study (Optional)" id="yearOfStudy" name="year_of_study" min="1" max="9">
             </div>
             <div class="checkbox-container">
                 <input type="checkbox" id="selectCourses" name="courses">
                 <label for="selectCourses">Select Courses</label>
             </div>
             <div class="checkbox-container">
-                <input type="checkbox" id="terms" required>
+                <input type="checkbox" id="terms" required name="accepted_terms">
                 <label for="terms">I agree to the <a href="terms.html">Terms and Conditions</a></label>
             </div>
             
@@ -49,12 +50,364 @@
                 <input type="text" id="captcha" required>
             </div>         
 
-            <div id="error-message">
+            <div id="error-message" aria-live="polite" style="color: red;font-size: 14px;margin-top: 10px;">
                 <!--to handle errors-->
             </div>
 
             
-            <button type="submit" id="submit">Sign Up</button>
+            <!-- Modal for Course Selection -->
+<!-- Pop-up Modal -->
+<div id="courseModal" class="modal">
+    <div class="modal-content">
+        <span class="close-button">&times;</span>
+        <h2>Select Your Courses</h2>
+        
+        <!-- Search Bar -->
+        <input type="text" id="courseSearch" placeholder="Search for a course..." />
+
+        <!-- Course Categories -->
+        <div class="categories">
+            <!-- School of Education -->
+            <div class="category">
+                <h3 class="category-title">School of Education</h3>
+                <ul class="course-list">
+                    <li>
+                        <input type="checkbox" id="eduBioSciences" name="eduBioSciences" class="controlled">
+                        <label for="eduBioSciences">
+                             Bachelor of Education (Biological Sciences)
+                        </label>
+                    </li>
+
+                    <li>
+                        <input type="checkbox" id="eduChem" name="eduChem" class="controlled">
+                        <label for="eduChem">
+                            Bachelor of Education in Chemistry
+                        </label>
+                    </li>
+
+                    <li>
+                        <input type="checkbox" id="eduComSciences" name="eduComSciences" class="controlled">
+                        <label for="eduComSciences">
+                            Bachelor of Education (Computer Sciences)
+                        </label>
+                    </li>
+
+                    <li>
+                        <input type="checkbox" id="eduhumanEco" name="eduhumanEco" class="controlled">
+                        <label for="eduhumanEco">
+                            Bachelor of Education (Human Ecology)
+                        </label>
+                    </li>
+
+
+                    <li>
+                        <input type="checkbox" id="eduPhy" name="eduPhy" class="controlled">
+                        <label for="eduPhy">
+                            Bachelor of Education (Physics)
+                        </label>
+                    </li>
+
+                    <li>
+                        <input type="checkbox" id="eduSocial" name="eduSocial" class="controlled">
+                        <label for="eduSocial">
+                            Bachelor of Education (Social Studies)
+                        </label>
+                    </li>
+
+                    <li>
+                        <input type="checkbox" id="eduLan" name="eduLan" class="controlled">
+                        <label for="eduLan">
+                            Bachelor of Education (Language)
+                        </label>
+                    </li>
+
+                    <li>
+                        <input type="checkbox" id="eduMat" name="eduMat" class="controlled">
+                        <label for="eduMat">
+                            Bachelor of Education (Mathematics)
+                        </label>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Faculty of Humanities -->
+            <div class="category">
+                <h3 class="category-title">Faculty of Humanities</h3>
+                <ul class="course-list">
+
+                    <li>
+                        <input type="checkbox" id="artsComm" name="artsComm" class="controlled">
+                        <label for="artsComm">
+                            Bachelor of Arts (Communication and Cultural Studies)
+                        </label>
+                    </li>
+
+
+                    <li>
+                        <input type="checkbox" id="artsHuman" name="artsHuman" class="controlled">
+                        <label for="artsHuman">
+                            Bachelor of Arts (Humanities)
+                        </label>
+                    </li>
+
+                    <li>
+                        <input type="checkbox" id="artsMedia" name="artsMedia" class="controlled">
+                        <label for="artsMedia">
+                            Bachelor of Arts (Media for Development)
+                        </label>
+                    </li>
+
+                    <li>
+                        <input type="checkbox" id="artsTheo" name="artsTheo" class="controlled">
+                        <label for="artsTheo">
+                            Bachelor of Arts (Theology)
+                        </label>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Faculty of Law -->
+            <div class="category">
+                <h3 class="category-title">Faculty of Law</h3>
+                <ul class="course-list">
+
+                    <li>
+                        <input type="checkbox" id="lawHons" name="lawHons" class="controlled">
+                        <label for="lawHons">
+                            LLB (Hons) programme
+                        </label>
+                    </li>
+
+                    <li>
+                        <input type="checkbox" id="lawDip" name="lawDip" class="controlled">
+                        <label for="lawDip">
+                            Diploma in Law
+                        </label>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Faculty of Science -->
+            <div class="category">
+                <h3 class="category-title">Faculty of Science</h3>
+                <ul class="course-list">
+
+                    <li>
+                        <input type="checkbox" id="generic" name="generic" class="controlled">
+                        <label for="generic">
+                            Bachelor of Science (generic)
+                        </label>
+                    </li>
+
+                    <li>
+                        <input type="checkbox" id="chemHons" name="chemHons" class="controlled">
+                        <label for="chemHons">
+                            Bachelor of Science (Hons) in Chemistry
+                        </label>
+                    </li>
+
+                    <li>
+                        <input type="checkbox" id="bioScience" name="bioScience" class="controlled">
+                        <label for="bioScience">
+                            Bachelor of Science in Biological Science
+                        </label>
+                    </li>
+
+                    <li>
+                        <input type="checkbox" id="comNet" name="comNet" class="controlled">
+                        <label for="comNet">
+                            Bachelor of Science in Computer Network Engineering
+                        </label>
+                    </li>
+
+                    <li>
+                        <input type="checkbox" id="comSciences" name="comSciences" class="controlled">
+                        <label for="comSciences">
+                            Bachelor of Science in Computer Science
+                        </label>
+                    </li>
+
+                    <li>
+                        <input type="checkbox" id="childDev" name="childDev" class="controlled">
+                        <label for="childDev">
+                            Bachelor of Early Childhood Development
+                        </label>
+                    </li>
+
+                    <li>
+                        <input type="checkbox" id="electronics" name="electronics" class="controlled">
+                        <label for="electronics">
+                            Bachelor of Science in Electronics
+                        </label>
+                    </li>
+
+                    <li>
+                        <input type="checkbox" id="infoSystems" name="infoSystems" class="controlled">
+                        <label for="infoSystems">
+                            Bachelor of Science in Information Systems
+                        </label>
+                    </li>
+
+                    <li>
+                        <input type="checkbox" id="math" name="math" class="controlled">
+                        <label for="math">
+                            Bachelor Science in Mathematics
+                        </label>
+                    </li>
+
+                    <li>
+                        <input type="checkbox" id="physics" name="physics" class="controlled">
+                        <label for="physics">
+                            Bachelor of Science in Physics
+                        </label>
+                    </li>
+
+                    <li>
+                        <input type="checkbox" id="stats" name="stats" class="controlled">
+                        <label for="stats">
+                            Bachelor of Science in Statistics
+                        </label>
+                    </li>
+
+                    <li>
+                        <input type="checkbox" id="geog" name="geog" class="controlled">
+                        <label for="geog">
+                            Bachelor of Science in Geography
+                        </label>
+                    </li>
+
+                    <li>
+                        <input type="checkbox" id="geology" name="geology" class="controlled">
+                        <label for="geology">
+                            Bachelor of Science in Geology
+                        </label>
+                    </li>
+
+                    <li>
+                        <input type="checkbox" id="foodNut" name="foodNut" class="controlled">
+                        <label for="foodNut">
+                            Bachelor of Science in Food and Nutrition
+                        </label>
+                    </li>
+
+                    <li>
+                        <input type="checkbox" id="famCons" name="famCons" class="controlled">
+                        <label for="famCons">
+                            Bachelor of Science in Family and Consumer Sciences
+                        </label>
+                    </li>
+
+                    <li>
+                        <input type="checkbox" id="actHons" name="actHons" class="controlled">
+                        <label for="actHons">
+                            Bachelor Science in Actuarial Science (Hons)
+                        </label>
+                    </li>
+
+                    <li>
+                        <input type="checkbox" id="statsDip" name="statsDip" class="controlled">
+                        <label for="statsDip">
+                            Diploma in Statistics
+                        </label>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Faculty of Social Science -->
+            <div class="category">
+                <h3 class="category-title">Faculty of Social Science</h3>
+                <ul class="course-list">
+ 
+                    <li>
+                        <input type="checkbox" id="economics" name="economics" class="controlled">
+                        <label for="economics">
+                            Bachelor of Arts in Development Economics
+                        </label>
+                    </li>
+
+                    <li>
+                        <input type="checkbox" id="sociology" name="sociology" class="controlled">
+                        <label for="sociology">
+                            Bachelor of Arts in Sociology
+                        </label>
+                    </li>
+
+                    <li>
+                        <input type="checkbox" id="psychology" name="psychology" class="controlled">
+                        <label for="psychology">
+                            Bachelor of Arts in Psychology
+                        </label>
+                    </li>
+
+                    <li>
+                        <input type="checkbox" id="history" name="history" class="controlled">
+                        <label for="history">
+                            Bachelor of Arts in Social Economic History
+                        </label>
+                    </li>
+
+                    <li>
+                        <input type="checkbox" id="gender" name="gender" class="controlled">
+                        <label for="gender">
+                            Bachelor of Social Science in Gender Studies
+                        </label>
+                    </li>
+
+                    <li>
+                        <input type="checkbox" id="socialWork" name="socialWork" class="controlled">
+                        <label for="socialWork">
+                            Bachelor of Social Science (Social Work)
+                        </label>
+                    </li>
+
+                    <li>
+                        <input type="checkbox" id="socialScience" name="socialScience" class="controlled">
+                        <label for="socialScience">
+                            Bachelor of Social Science
+                        </label>
+                    </li>
+
+                    <li>
+                        <input type="checkbox" id="admin" name="admin" class="controlled">
+                        <label for="admin">
+                            Bachelor of Arts in Public Administration
+                        </label>
+                    </li>
+
+                    <li>
+                        <input type="checkbox" id="politics" name="politics" class="controlled">
+                        <label for="politics">
+                            Bachelor of Arts in Political Science
+                        </label>
+                    </li>
+
+                    <li>
+                        <input type="checkbox" id="manage" name="manage" class="controlled">
+                        <label for="manage">
+                            Bachelor of Arts in Human Resource Management
+                        </label>
+                    </li>
+
+                    <li>
+                        <input type="checkbox" id="artsEco" name="artsEco" class="controlled">
+                        <label for="artsEco">
+                            Bachelor of Arts in Economics
+                        </label>
+                    </li>
+
+                    <li>
+                        <input type="checkbox" id="leadership" name="leadership" class="controlled">
+                        <label for="leadership">
+                            Bachelor of Social Science in Law Enforcement Management and Leadership
+                        </label>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+            <button id="submit">Sign Up</button>
         </form>
     </div>
 
@@ -64,7 +417,6 @@
             <path stroke-linecap="round" stroke-linejoin="round" d="M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
         </symbol>
     </svg>
-
-    <script src="signup.js"></script>
+<script src="signup.js"></script>
 </body>
 </html>
