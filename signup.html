@@ -418,5 +418,22 @@
         </symbol>
     </svg>
 <script src="signup.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+    const usernameInput = document.getElementById("userName");
+    const errorMessage = document.getElementById("error-message");
+
+    usernameInput.addEventListener("input", () => {
+        const username = usernameInput.value;
+        const usernameRegex = /^[a-zA-Z]+$/;
+
+        if (username && !usernameRegex.test(username)) {
+            errorMessage.textContent = "Username must contain only letters.";
+        } else {
+            errorMessage.textContent = ""; // Clear the error message
+        }
+    });
+});
+</script>
 </body>
 </html>
