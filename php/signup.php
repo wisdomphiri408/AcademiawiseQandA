@@ -1,16 +1,6 @@
 <?php
-
-    header("Content-Type:application/json"); //sending data in json format
-
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
-    $database = "asknect";
-    $conn = new mysqli($servername, $username, $password, $database);
-
-    if($conn->connect_error){
-        die("Something went wrong: ".$conn->connect_error);
-    }
+header('Content-Type: application/json');
+include_once "db.php";
 
     // Server-side CAPTCHA validation
     if ($_SERVER["REQUEST_METHOD"] === "POST") {
