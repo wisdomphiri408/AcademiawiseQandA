@@ -1,6 +1,7 @@
 const submit = document.getElementById('submit');
 const password = document.getElementById('password');
 const email = document.getElementById('email');
+const error_message = document.getElementById("error_message");
 
 const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 submit.addEventListener('click',function(event){
@@ -15,10 +16,8 @@ submit.addEventListener('click',function(event){
     }
 
     if(errorMessage){
-        alert(errorMessage);
+        error_message.innerHTML = `<p style="color:red;">${errorMessage}</p>`;
         event.preventDefault();
         return; /*prevents the rest of the code to be excuted */
     }
-  console.log(`email adress: ${emailValue}`);
-  console.log(`password: ${passwordValue}`);
 });
