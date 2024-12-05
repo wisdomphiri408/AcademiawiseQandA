@@ -6,6 +6,7 @@
 <title>Sign In</title>
 <link rel="stylesheet" href="css/sign.css">
 <link rel="stylesheet" href="css/general.css">
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
 
@@ -18,6 +19,9 @@
         <div class="input-group">
             <input type="password" id="password" name="password" placeholder="Enter your password" required>
         </div>
+        <div id="error_message" style="color: red;">
+
+        </div>
         <button type="submit" id="submit">Sign In</button>
         <p><a href="#">Forgot Password?</a></p>
         <p>Don't have an account? <a href="signup.html">Sign Up</a></p>
@@ -25,5 +29,45 @@
 </div>
 
 <script src="sign.js"></script>
+<script>
+    //sending data to backend
+    $(document).ready(function(){
+        $("#signin-form").on("submit",function(e){
+            e.preventDefault();
+
+            $email = document.getElementById("email").value.trim();
+            $password = document.getElementById("password").value.trim();
+
+            //security and validations are already present in the sign.js
+            if (!$email || !$password) {
+                $("#error_message").html("Both email and password are required.");
+                return;
+            }
+
+            $.ajax({
+                url:"php/sign.php",
+                method:"POST",
+                dataType:"json",
+                data:{
+                    email:$email,
+                    password:$password
+                },
+                success: function(response){
+                    if(response.success){
+                        window.location.href = "index.html";
+                    }
+                    else{
+                        $("#error_message").html(response.message);
+                    }
+                },
+                error: function(xhr, status, error) {
+                    $("#error_message").html(
+                    "Something went wrong. Please try again. Error: " + xhr.responseText
+                     );
+                }
+            });
+        });
+    });
+</script>
 </body>
 </html>
