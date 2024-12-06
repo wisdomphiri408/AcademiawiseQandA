@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="css/header.css">
     <link rel="stylesheet" href="css/sidebar.css">
     <link rel="stylesheet" href="css/main.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
     <header>
@@ -29,12 +30,23 @@
           </svg>
         </div> <!-- End of the search field -->
 
-        <div class="profile-icon">
+        <div class="profile-icon" id="profileContainer">
+          <div class="profile-badge" id="profileLetter">
+            <!-- Replace 'A' dynamically using JavaScript -->
+        </div>
+
+        <div class="dropdown-menu" id="profileDropdown">
+          <a href="/dashboard.html">Dashboard</a>
+          <a href="/signout.html">Sign Out</a>
+        </div>
+
+        <div id="profileImage">
           <a href="sign.html">
             <svg class="icons" aria-label="profile icon">
                 <use href="#profileIcon"></use>
             </svg>
           </a>
+        </div>
         </div>
         <div class="notifications">
           <svg class="icons" id="bell-icon">
@@ -168,5 +180,6 @@
 
     <script src="header.js"></script>
     <script src="main.js"></script>
+    <script src="profile.js"></script>
 </body>
 </html>
