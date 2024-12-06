@@ -38,7 +38,7 @@ if($_SERVER["REQUEST_METHOD"]=== "POST"){
 
         echo json_encode([
             "success" => true,
-            "message" => "Welcome, ".$user["username"]
+            "username" => $user["username"]
         ]);
     }
     else{
