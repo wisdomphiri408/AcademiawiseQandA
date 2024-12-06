@@ -4,7 +4,9 @@
   height: 24px;
   transition: transform 0.3s ease;
   cursor: pointer;
+  
 }
+
 
 .icons:hover {
   transform: scale(1.1); /* Slightly enlarge the icon on hover */
@@ -92,6 +94,7 @@ header {
     display: none; /* Hide search bar on smaller screens initially */
     width: 70%;
     margin-left: 5%;
+    margin-left: 5%;
   }
 
   .close-icon {
@@ -107,6 +110,83 @@ header {
 .profile-icon {
   flex: 1;
 }
+
+.profile-letter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px; /* Adjust size as needed */
+  height: 40px;
+  background-color: #4CAF50; /* Choose a color */
+  color: white;
+  font-size: 20px; /* Adjust font size */
+  border-radius: 50%; /* Make it circular */
+  font-weight: bold;
+}
+/* Profile Badge */
+.profile-badge {
+  display: flex;
+  font-size: 1.5rem; /* Text size */
+  font-weight: bold;
+  cursor: pointer; /* Pointer on hover */
+  width: 40px; /* Size of the avatar */
+  height: 40px; 
+  border-radius: 50%; /* Circular avatar */
+  background-color: #f0f0f0; /* Light gray background */
+  color: #888888; /* Muted text color */
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #e0e0e0; /* Subtle border */
+  text-transform: uppercase; /* Initials in uppercase */
+}
+/*for the profile image*/
+.hidden {
+  visibility: hidden;
+}
+.visible {
+  visibility: visible;
+}
+
+
+/* Responsive scaling for smaller screens */
+@media (max-width: 768px) {
+  .profile-badge {
+      width: 30px;
+      height: 30px;
+      font-size: 1rem;
+  }
+}
+
+/* Optional: Hover effect */
+.profile-badge:hover {
+  background-color: #e0e0e0; /* Slightly darker background on hover */
+}
+
+/*The drop down box in the profile icon*/
+/* Hide the dropdown by default */
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  background-color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  padding: 10px;
+  border-radius: 4px;
+  z-index: 1000;
+}
+
+/* Style the links inside the dropdown */
+.dropdown-menu a {
+  text-decoration: none;
+  display: block;
+  padding: 8px 12px;
+  color: #333;
+  border-radius: 4px;
+}
+
+.dropdown-menu a:hover {
+  background-color: #f0f0f0;
+}
+
 
 /* Styling for the lower header */
 .lower-header {
